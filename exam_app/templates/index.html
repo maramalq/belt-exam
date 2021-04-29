@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Login and Registration</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <h1> Registration </h1>
+                <form action="/register" method="POST" class="form-horizontal">
+                    {% csrf_token %}
+                    <p> First Name: <input type="text" name="first_name"> </p>
+                    <p> Last Name: <input type="text" name="last_name"> </p>
+                    <p> Email: <input type="email" name="email"> </p>
+                    <p> Password: <input type="password" name="password"> </p>
+                    <p> Conforim PW: <input type="password" name="conforin_pw"> </p>
+                    <button type="submit" class="btn btn-info"> Register </button>
+                </form>
+            </div>
+            
+            <div class="col-sm-6">
+                <h1> Login </h1>
+                <form action="/login" method="POST" class="form-horizontal">
+                    {% csrf_token %}
+                    <p> Email: <input type="email" name="email"> </p>
+                    <p> Password: <input type="password" name="password"> </p>
+                    <button type="submit" class="btn btn-info"> Login </button>
+                </form>
+            </div>
+        </div>
+        {% if messages %}
+        <ul class="messages">    
+            {% for message in messages %}    
+                <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+
+</body>
+</html>

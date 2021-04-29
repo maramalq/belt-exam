@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>The Wishing App</title>
+</head>
+<body>
+    <div class="container">
+        <h2> Edit a Wishe </h2>
+        <form action="/wishes/update/{{the_wish.id}}" method="post" class="form-horizontal">
+            {%csrf_token%}
+            <p> Name: <input type="text" name="name" value="{{ the_wish.name }}"> </p>
+            <p> Description: </p>
+            <p> <textarea name="desc" row=40 cols=40> {{ the_wish.desc }} </textarea> </p>
+            <p> <button type="submit" class="btn btn-info"> Update </button> <a href="/wishes" class="btn btn-info" role="button"> Cancel </a> </p>
+        </form>
+
+        {% if messages %}
+            <ul class="messages">    
+            {% for message in messages %}    
+                <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+            {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+</body>
+</html>

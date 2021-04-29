@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>The Wishing App</title>
+</head>
+<body>
+    <div class="container">
+        <div>
+            <a href="/wishes"> Dashboard </a> | <a href="/logout">Log Out</a>
+        </div>
+    
+        <h1> Hello {{user.first_name}}! These are your stats! </h1>
+        <h3> Total wishes granted so far for all the users: {{ user_wishes_granted.count }}</h3>
+        <p> Your granted wishes: {{ wishes_granted.count }} </p>
+        <p> Your pending wishes: {{ pending_wishes }} </p>
+
+        <p> Your all wishes: {{ wishes_maded.count  }} </p>
+
+    </div>
+</body>
+</html>
